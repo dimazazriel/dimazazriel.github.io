@@ -192,6 +192,34 @@
     text-transform:uppercase;
     color:var(--muted);
   }
+
+  /* ── desktop / laptop ── */
+  @media (min-width:880px){
+    .wrap{
+      max-width:980px;
+      padding:36px 40px 64px;
+    }
+    .topstrip{
+      font-size:11.5px;
+      margin-bottom:22px;
+    }
+    .layout{
+      display:grid;
+      grid-template-columns:400px 1fr;
+      gap:44px;
+      align-items:start;
+    }
+    .col-pass{
+      position:sticky;
+      top:36px;
+    }
+    h1{font-size:54px}
+    .about{margin:24px 2px 0}
+    .rundown-label{margin-top:4px}
+    .cue{padding:17px 20px;margin-bottom:12px}
+    .cue-title{font-size:16px}
+    footer{margin-top:40px}
+  }
 </style>
 </head>
 <body>
@@ -201,6 +229,9 @@
     <span class="rec"><span class="rec-dot"></span>Live</span>
     <span>Jakarta · ID</span>
   </div>
+
+  <div class="layout">
+  <div class="col-pass">
 
   <!-- CREW PASS -->
   <section class="pass" aria-label="Profil">
@@ -225,6 +256,10 @@
     Ngurusin operasional di balik layar — dari inventaris alat sampai rundown acara dan sosial media.
     Di luar itu: ngoding, database, dan sesekali ranked Valorant.
   </p>
+
+  </div><!-- /col-pass -->
+
+  <div class="col-links">
 
   <!-- LINKS -->
   <h2 class="rundown-label">Rundown — Kontak &amp; Link</h2>
@@ -273,6 +308,9 @@
     </span>
     <span class="cue-arrow">-&gt;</span>
   </a>
+
+  </div><!-- /col-links -->
+  </div><!-- /layout -->
 
   <footer>Dimaz · 2026 · Standby for next cue</footer>
 
