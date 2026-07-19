@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dimaz — Link in Bio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF1F4;
+    --ink:#1B2432;
+    --amber:#F2A33C;
+    --rec:#E5484D;
+    --muted:#8A94A3;
+    --line:#C9D0D9;
+    --card:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    justify-content:center;
+    min-height:100vh;
+  }
+  .wrap{
+    width:100%;
+    max-width:430px;
+    padding:20px 18px 48px;
+  }
+
+  /* ── top strip ── */
+  .topstrip{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.08em;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .rec{
+    display:flex;align-items:center;gap:6px;
+    color:var(--ink);font-weight:600;
+  }
+  .rec-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--rec);
+    animation:blink 1.6s infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+  @media (prefers-reduced-motion:reduce){
+    .rec-dot{animation:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ── crew pass card ── */
+  .pass{
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:6px 6px 0 rgba(27,36,50,.12);
+  }
+  .pass-head{
+    background:var(--ink);
+    color:var(--paper);
+    padding:10px 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+  }
+  .pass-head .tag{color:var(--amber)}
+  .pass-body{padding:22px 18px 18px}
+  .avatar{
+    width:76px;height:76px;
+    border-radius:50%;
+    border:2px solid var(--ink);
+    background:linear-gradient(135deg,var(--amber),#f6c77e);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Anton',sans-serif;
+    font-size:30px;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Anton',sans-serif;
+    font-size:44px;
+    line-height:1;
+    letter-spacing:.01em;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .tagline{
+    color:var(--muted);
+    font-weight:500;
+    font-size:14px;
+    margin-bottom:16px;
+  }
+  .meta{
+    border-top:1px dashed var(--line);
+    padding-top:14px;
+    display:grid;
+    grid-template-columns:88px 1fr;
+    row-gap:7px;
+    font-size:12.5px;
+  }
+  .meta dt{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+    padding-top:1px;
+  }
+  .meta dd{font-weight:500}
+
+  /* ── about ── */
+  .about{
+    margin:26px 2px 8px;
+    font-size:14px;
+    color:#3d4757;
+  }
+
+  /* ── rundown / links ── */
+  .rundown-label{
+    margin:26px 2px 10px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    display:flex;align-items:center;gap:10px;
+  }
+  .rundown-label::after{
+    content:"";flex:1;height:1px;background:var(--line);
+  }
+  .cue{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--card);
+    border:1.5px solid var(--ink);
+    border-radius:12px;
+    padding:14px 16px;
+    margin-bottom:10px;
+    text-decoration:none;
+    color:var(--ink);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .cue:hover,.cue:focus-visible{
+    transform:translate(-2px,-2px);
+    box-shadow:4px 4px 0 var(--amber);
+  }
+  .cue:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  .cue-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    color:var(--muted);
+    letter-spacing:.08em;
+    min-width:44px;
+  }
+  .cue-main{flex:1}
+  .cue-title{font-weight:600;font-size:15px}
+  .cue-sub{font-size:12px;color:var(--muted)}
+  .cue-arrow{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--amber);
+    font-weight:600;
+  }
+
+  /* ── footer ── */
+  footer{
+    margin-top:30px;
+    text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <div class="topstrip">
+    <span class="rec"><span class="rec-dot"></span>Live</span>
+    <span>Jakarta · ID</span>
+  </div>
+
+  <!-- CREW PASS -->
+  <section class="pass" aria-label="Profil">
+    <div class="pass-head">
+      <span>Crew Pass</span>
+      <span class="tag">All Access</span>
+    </div>
+    <div class="pass-body">
+      <div class="avatar" aria-hidden="true">DZ</div>
+      <h1>Dimaz</h1>
+      <p class="tagline">Sistem Informasi · Multimedia · Ops</p>
+      <dl class="meta">
+        <dt>Kampus</dt><dd>UPN "Veteran" Jakarta — D3 Sistem Informasi</dd>
+        <dt>Unit</dt><dd>KSM Multimedia · Div. Inventaris</dd>
+        <dt>Event</dt><dd>MIA 2026 · Head of Operational Division</dd>
+        <dt>Base</dt><dd>Jakarta</dd>
+      </dl>
+    </div>
+  </section>
+
+  <p class="about">
+    Ngurusin operasional di balik layar — dari inventaris alat sampai rundown acara.
+    Di luar itu: ngoding, database, dan sesekali ranked Valorant.
+  </p>
+
+  <!-- LINKS -->
+  <h2 class="rundown-label">Rundown — Kontak &amp; Link</h2>
+
+  <a class="cue" href="https://instagram.com/username_lo" target="_blank" rel="noopener">
+    <span class="cue-num">CUE 01</span>
+    <span class="cue-main">
+      <span class="cue-title">Instagram</span><br>
+      <span class="cue-sub">@username_lo</span>
+    </span>
+    <span class="cue-arrow">-&gt;</span>
+  </a>
+
+  <a class="cue" href="https://wa.me/62xxxxxxxxxx" target="_blank" rel="noopener">
+    <span class="cue-num">CUE 02</span>
+    <span class="cue-main">
+      <span class="cue-title">WhatsApp</span><br>
+      <span class="cue-sub">Chat langsung</span>
+    </span>
+    <span class="cue-arrow">-&gt;</span>
+  </a>
+
+  <a class="cue" href="mailto:emaillo@gmail.com">
+    <span class="cue-num">CUE 03</span>
+    <span class="cue-main">
+      <span class="cue-title">Email</span><br>
+      <span class="cue-sub">emaillo@gmail.com</span>
+    </span>
+    <span class="cue-arrow">-&gt;</span>
+  </a>
+
+  <a class="cue" href="https://github.com/username_lo" target="_blank" rel="noopener">
+    <span class="cue-num">CUE 04</span>
+    <span class="cue-main">
+      <span class="cue-title">GitHub</span><br>
+      <span class="cue-sub">Project: HOTELIA, SIP Digital, dll.</span>
+    </span>
+    <span class="cue-arrow">-&gt;</span>
+  </a>
+
+  <a class="cue" href="https://linkedin.com/in/username_lo" target="_blank" rel="noopener">
+    <span class="cue-num">CUE 05</span>
+    <span class="cue-main">
+      <span class="cue-title">LinkedIn</span><br>
+      <span class="cue-sub">Profil profesional</span>
+    </span>
+    <span class="cue-arrow">-&gt;</span>
+  </a>
+
+  <footer>Dimaz · 2026 · Standby for next cue</footer>
+
+</main>
+</body>
+</html>
